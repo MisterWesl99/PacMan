@@ -49,15 +49,57 @@ cmake_ninja_workdir = /Users/markus/CLionProjects/PacMan/cmake-build-debug/
 
 build cmake_object_order_depends_target_PacMan: phony || .
 
-build CMakeFiles/PacMan.dir/main.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/main.cpp || cmake_object_order_depends_target_PacMan
-  DEP_FILE = CMakeFiles/PacMan.dir/main.cpp.o.d
+build CMakeFiles/PacMan.dir/Main.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/Main.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/Main.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
   INCLUDES = -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/PacMan.dir
   OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
 
-build CMakeFiles/PacMan.dir/temp.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/temp.cpp || cmake_object_order_depends_target_PacMan
-  DEP_FILE = CMakeFiles/PacMan.dir/temp.cpp.o.d
+build CMakeFiles/PacMan.dir/Pacman.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/Pacman.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/Pacman.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/PacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
+
+build CMakeFiles/PacMan.dir/DrawMap.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/DrawMap.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/DrawMap.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/PacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
+
+build CMakeFiles/PacMan.dir/DrawText.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/DrawText.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/DrawText.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/PacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
+
+build CMakeFiles/PacMan.dir/ConvertSketch.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/ConvertSketch.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/ConvertSketch.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/PacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
+
+build CMakeFiles/PacMan.dir/Ghost.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/Ghost.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/Ghost.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/PacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
+
+build CMakeFiles/PacMan.dir/GhostManager.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/GhostManager.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/GhostManager.cpp.o.d
+  FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/PacMan.dir
+  OBJECT_FILE_DIR = CMakeFiles/PacMan.dir
+
+build CMakeFiles/PacMan.dir/MapCollision.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Users/markus/CLionProjects/PacMan/MapCollision.cpp || cmake_object_order_depends_target_PacMan
+  DEP_FILE = CMakeFiles/PacMan.dir/MapCollision.cpp.o.d
   FLAGS = -g -std=gnu++20 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -fcolor-diagnostics
   INCLUDES = -isystem /opt/homebrew/include
   OBJECT_DIR = CMakeFiles/PacMan.dir
@@ -71,7 +113,7 @@ build CMakeFiles/PacMan.dir/temp.cpp.o: CXX_COMPILER__PacMan_unscanned_Debug /Us
 #############################################
 # Link the executable PacMan
 
-build PacMan: CXX_EXECUTABLE_LINKER__PacMan_Debug CMakeFiles/PacMan.dir/main.cpp.o CMakeFiles/PacMan.dir/temp.cpp.o | /opt/homebrew/lib/libsfml-graphics.3.0.0.dylib /opt/homebrew/lib/libsfml-window.3.0.0.dylib /opt/homebrew/lib/libsfml-system.3.0.0.dylib
+build PacMan: CXX_EXECUTABLE_LINKER__PacMan_Debug CMakeFiles/PacMan.dir/Main.cpp.o CMakeFiles/PacMan.dir/Pacman.cpp.o CMakeFiles/PacMan.dir/DrawMap.cpp.o CMakeFiles/PacMan.dir/DrawText.cpp.o CMakeFiles/PacMan.dir/ConvertSketch.cpp.o CMakeFiles/PacMan.dir/Ghost.cpp.o CMakeFiles/PacMan.dir/GhostManager.cpp.o CMakeFiles/PacMan.dir/MapCollision.cpp.o | /opt/homebrew/lib/libsfml-graphics.3.0.0.dylib /opt/homebrew/lib/libsfml-window.3.0.0.dylib /opt/homebrew/lib/libsfml-system.3.0.0.dylib
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.3.0.0.dylib  /opt/homebrew/lib/libsfml-window.3.0.0.dylib  /opt/homebrew/lib/libsfml-system.3.0.0.dylib
   OBJECT_DIR = CMakeFiles/PacMan.dir

@@ -78,7 +78,7 @@ int main() {
 
             lag -= FRAME_DURATION;
 
-            while (1 == window.pollEvent(event)) {
+            while (window.pollEvent(event) == 1) {
 
                 switch (event.type) {
 
@@ -88,6 +88,11 @@ int main() {
                     }
                 }
             }
+            if (0 == game_won && 0 == pacman.get_dead()) {
+                game_won = 1;
+                pacman.update(level, map);
+            }
+
         }
     }
 }

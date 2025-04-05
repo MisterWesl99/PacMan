@@ -8,11 +8,21 @@ list(APPEND CMAKE_PREFIX_PATH "/opt/homebrew")
 
 find_package(SFML 3.0 COMPONENTS System Window Graphics REQUIRED)
 
-add_executable(PacMan main.cpp temp.cpp Headers/Global.hpp
+add_executable(PacMan Main.cpp Headers/Global.hpp
         Headers/ConvertSketch.hpp
         Headers/DrawMap.hpp
-        DrawText.hpp
-        MapCollision.hpp)
+        Pacman.cpp
+        Headers/Pacman.hpp
+        Headers/MapCollision.hpp
+        Headers/DrawText.hpp
+        Headers/Ghost.hpp
+        Headers/GhostManager.hpp
+        DrawMap.cpp
+        DrawText.cpp
+        ConvertSketch.cpp
+        Ghost.cpp
+        GhostManager.cpp
+        MapCollision.cpp)
 
 target_link_libraries(PacMan PRIVATE SFML::System SFML::Window SFML::Graphics)
 

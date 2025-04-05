@@ -1,0 +1,6 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/aarch64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/Applications/CLion.app/Contents/bin/ninja/mac/aarch64/ninja -DCMAKE_CXX_COMPILER=/Library/Developer/CommandLineTools/usr/bin/clang++ -G Ninja -S /Users/markus/CLionProjects/PacMan -B /Users/markus/CLionProjects/PacMan/cmake-build-debug
+-- Found SFML 3.0.0 in /opt/homebrew/lib/cmake/SFML
+-- SFML  gefunden. Komponenten: System, Window, Graphics
+-- Configuring done (0.0s)
+-- Generating done (0.0s)
+-- Build files have been written to: /Users/markus/CLionProjects/PacMan/cmake-build-debug

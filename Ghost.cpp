@@ -73,20 +73,20 @@ void Ghost::draw(bool i_flash, sf::RenderWindow& i_window)
     //Current frame of the animation.
     unsigned char body_frame = static_cast<unsigned char>(floor(animation_timer / static_cast<float>(GHOST_ANIMATION_SPEED)));
 
-    sf::Sprite body;
-    sf::Sprite face;
-
     sf::Texture texture;
+    sf::Sprite body(texture);
+    sf::Sprite face(texture);
+
     texture.loadFromFile("Resources/Images/Ghost" + std::to_string(CELL_SIZE) + ".png");
 
     body.setTexture(texture);
-    body.setPosition(position.x, position.y);
+    body.setPosition({static_cast<float>(position.x), static_cast<float>(position.y)});
     //Animation is basically a quick display of similar images.
     //So that's what we're doing here.
-    body.setTextureRect(sf::IntRect(CELL_SIZE * body_frame, 0, CELL_SIZE, CELL_SIZE));
+    body.setTextureRect(sf::IntRect({CELL_SIZE * body_frame, 0}, {CELL_SIZE, CELL_SIZE}));
 
     face.setTexture(texture);
-    face.setPosition(position.x, position.y);
+    face.setPosition({static_cast<float>(position.x), static_cast<float>(position.y)});
 
     //The "I'm not frightened" look.
     if (0 == frightened_mode)
@@ -121,7 +121,7 @@ void Ghost::draw(bool i_flash, sf::RenderWindow& i_window)
             }
         }
 
-        face.setTextureRect(sf::IntRect(CELL_SIZE * direction, CELL_SIZE, CELL_SIZE, CELL_SIZE));
+        face.setTextureRect(sf::IntRect({CELL_SIZE * direction, CELL_SIZE}, {CELL_SIZE, CELL_SIZE}));
 
         i_window.draw(body);
     }
@@ -130,7 +130,7 @@ void Ghost::draw(bool i_flash, sf::RenderWindow& i_window)
     {
         body.setColor(sf::Color(36, 36, 255));
         //The face remains the same regardless of where the gohst is going right now.
-        face.setTextureRect(sf::IntRect(4 * CELL_SIZE, CELL_SIZE, CELL_SIZE, CELL_SIZE));
+        face.setTextureRect(sf::IntRect({4 * CELL_SIZE, CELL_SIZE}, {CELL_SIZE, CELL_SIZE}));
 
         if (1 == i_flash && 0 == body_frame % 2)
         {
@@ -149,7 +149,7 @@ void Ghost::draw(bool i_flash, sf::RenderWindow& i_window)
     else
     {
         //We only draw the face because Pacman stole the body.
-        face.setTextureRect(sf::IntRect(CELL_SIZE * direction, 2 * CELL_SIZE, CELL_SIZE, CELL_SIZE));
+        face.setTextureRect(sf::IntRect({CELL_SIZE * direction, 2 * CELL_SIZE}, {CELL_SIZE, CELL_SIZE}));
     }
 
     i_window.draw(face);

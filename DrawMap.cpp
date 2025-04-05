@@ -6,25 +6,23 @@
 
 void draw_map(const std::array<std::array<Cell, MAP_HEIGHT>, MAP_WIDTH>& i_map, sf::RenderWindow& i_window)
 {
-    sf::Sprite sprite;
-
     sf::Texture texture;
     texture.loadFromFile("Resources/Images/Map" + std::to_string(CELL_SIZE) + ".png");
-
+    sf::Sprite sprite(texture);
     sprite.setTexture(texture);
 
     for (unsigned char a = 0; a < MAP_WIDTH; a++)
     {
         for (unsigned char b = 0; b < MAP_HEIGHT; b++)
         {
-            sprite.setPosition(static_cast<float>(CELL_SIZE * a), static_cast<float>(CELL_SIZE * b));
+            sprite.setPosition({static_cast<float>(CELL_SIZE * a), static_cast<float>(CELL_SIZE * b)});
 
             //We just crop out what we need from the texture.
             switch (i_map[a][b])
             {
                 case Cell::Door:
                 {
-                    sprite.setTextureRect(sf::IntRect(2 * CELL_SIZE, CELL_SIZE, CELL_SIZE, CELL_SIZE));
+                    sprite.setTextureRect(sf::IntRect({2 * CELL_SIZE, CELL_SIZE}, {CELL_SIZE, CELL_SIZE}));
 
                     i_window.draw(sprite);
 
@@ -32,7 +30,7 @@ void draw_map(const std::array<std::array<Cell, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
                 }
                 case Cell::Energizer:
                 {
-                    sprite.setTextureRect(sf::IntRect(CELL_SIZE, CELL_SIZE, CELL_SIZE, CELL_SIZE));
+                    sprite.setTextureRect(sf::IntRect({CELL_SIZE, CELL_SIZE}, {CELL_SIZE, CELL_SIZE}));
 
                     i_window.draw(sprite);
 
@@ -40,7 +38,7 @@ void draw_map(const std::array<std::array<Cell, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
                 }
                 case Cell::Pellet:
                 {
-                    sprite.setTextureRect(sf::IntRect(0, CELL_SIZE, CELL_SIZE, CELL_SIZE));
+                    sprite.setTextureRect(sf::IntRect({0, CELL_SIZE}, {CELL_SIZE, CELL_SIZE}));
 
                     i_window.draw(sprite);
 
@@ -95,10 +93,12 @@ void draw_map(const std::array<std::array<Cell, MAP_HEIGHT>, MAP_WIDTH>& i_map, 
                     }
 
                     //--------------------------------------------<         DISTRIBUTIVE PROPERTY!         >----------------------------
-                    sprite.setTextureRect(sf::IntRect(CELL_SIZE * (down + 2 * (left + 2 * (right + 2 * up))), 0, CELL_SIZE, CELL_SIZE));
+                    sprite.setTextureRect(sf::IntRect({CELL_SIZE * (down + 2 * (left + 2 * (right + 2 * up))), 0}, {CELL_SIZE, CELL_SIZE}));
 
                     i_window.draw(sprite);
                 }
+                case Empty:
+                    break;
             }
         }
     }

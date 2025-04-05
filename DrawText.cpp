@@ -11,9 +11,9 @@ void draw_text(bool i_center, unsigned short i_x, unsigned short i_y, const std:
 
     unsigned char character_width;
 
-    sf::Sprite character_sprite;
-
     sf::Texture font_texture;
+    sf::Sprite character_sprite(font_texture);
+
     font_texture.loadFromFile("Resources/Images/Font.png");
 
     //There are 96 characters in the font texture.
@@ -48,9 +48,9 @@ void draw_text(bool i_center, unsigned short i_x, unsigned short i_y, const std:
             continue;
         }
 
-        character_sprite.setPosition(character_x, character_y);
+        character_sprite.setPosition({static_cast<float>(character_x), static_cast<float>(character_y)});
         //The font texture begins with a space character, which is the 32nd character.
-        character_sprite.setTextureRect(sf::IntRect(character_width * (*a - 32), 0, character_width, FONT_HEIGHT));
+        character_sprite.setTextureRect(sf::IntRect({character_width * (*a - 32), 0}, {character_width, FONT_HEIGHT}));
 
         character_x += character_width;
 

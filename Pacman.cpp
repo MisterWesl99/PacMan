@@ -37,11 +37,12 @@ Position Pacman::get_position() {
 void Pacman::draw(bool i_victory, sf::RenderWindow & i_window) {
     unsigned char frame = static_cast<unsigned char>(floor(animation_timer / static_cast<float>(PACMAN_ANIMATION_SPEED)));
 
-    sf::Sprite sprite;
 
     sf::Texture texture;
 
-    sprite.setPosition(position.x, position.y);
+    sf::Sprite sprite(texture);
+
+    sprite.setPosition({static_cast<float>(position.x), static_cast<float>(position.y)});
 
     if (1 == dead || 1 == i_victory) {
         if (animation_timer < PACMAN_DEATH_FRAMES * PACMAN_ANIMATION_SPEED) {
@@ -50,7 +51,8 @@ void Pacman::draw(bool i_victory, sf::RenderWindow & i_window) {
             texture.loadFromFile("Resources/Images/PacmanDeath" + std::to_string(CELL_SIZE) + ".png");
 
             sprite.setTexture(texture);
-            sprite.setTextureRect(sf::IntRect(CELL_SIZE * frame, 0, CELL_SIZE, CELL_SIZE));
+            sf::IntRect r1({CELL_SIZE * frame, 0},{CELL_SIZE, CELL_SIZE});
+            sprite.setTextureRect(r1);
 
             i_window.draw(sprite);
         } else {
@@ -61,7 +63,7 @@ void Pacman::draw(bool i_victory, sf::RenderWindow & i_window) {
         texture.loadFromFile("Resources/Images/Pacman" + std::to_string(CELL_SIZE) + ".png");
 
         sprite.setTexture(texture);
-        sprite.setTextureRect(sf::IntRect(CELL_SIZE * frame, CELL_SIZE * direction, CELL_SIZE, CELL_SIZE));
+        sprite.setTextureRect(sf::IntRect({CELL_SIZE * frame, CELL_SIZE * direction}, {CELL_SIZE, CELL_SIZE}));
 
         i_window.draw(sprite);
 
@@ -103,25 +105,25 @@ void Pacman::update(unsigned char i_level, std::array<std::array<Cell, MAP_HEIGH
     walls[2] = map_collision(0, 0, position.x - PACMAN_SPEED, position.y, i_map);
     walls[3] = map_collision(0, 0, position.x, PACMAN_SPEED + position.y, i_map);
 
-    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
-        if (0 == walls[0]) //You can't turn in this direction if there's a wall there. {
+    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right)) {
+        if (0 == walls[0]) {
             direction = 0;
         }
     }
 
-    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up)) {
         if (0 == walls[1]) {
             direction = 1;
         }
     }
 
-    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
+    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left)) {
         if (0 == walls[2]) {
             direction = 2;
         }
     }
 
-    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+    if (1 == sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down)) {
         if (0 == walls[3]) {
             direction = 3;
         }
